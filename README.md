@@ -10,7 +10,7 @@ Teknologi yang digunakan :
 - PHP : 7++
 
 # Design Database
-- [Design Strutur Database](https://app.diagrams.net/#G1X4OdzY8K5P8pU8NoErtiDQ9LOEVvOSBqa)
+- [Design Strutur Database](https://drive.google.com/file/d/1X4OdzY8K5P8pU8NoErtiDQ9LOEVvOSBq/view?usp=sharing)
 
 # Design UI / UX
 - [Front Office / Back Office](https://www.figma.com/file/RY6jZdiWBc0ADwHsqWEKQT/Eraste.com?node-id=0%3A1)
