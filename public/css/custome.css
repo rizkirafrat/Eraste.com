@@ -1,0 +1,37 @@
+.nav-text{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #000000!important;
+}
+
+.nav-active{
+    font-weight: bold;
+}
+
+.title-el{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #000000;
+}
+
+.text-detail{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #484743;
+}
+
+.text-label{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #484743;
+}
