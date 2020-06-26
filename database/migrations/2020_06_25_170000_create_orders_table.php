@@ -15,16 +15,15 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('order_code',20);
-            $table->unsignedBigInteger('id_product');
+            $table->unsignedBigInteger('products_id');
+            $table->unsignedBigInteger('customers_id');
             $table->mediumInteger('qty');
-            $table->bigInteger('total_order');
             $table->boolean('status');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
 
 
-            $table->index(['id_product', 'order_code']);
+            $table->index(['id_product','customers_id']);
             $table->foreign('id_product')->references('id')->on('products');
         });
     }

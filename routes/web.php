@@ -26,7 +26,27 @@ Route::post('/order/orders_process', 'FrontOffice\HomeController@orderProcess')-
 
 
 // Back Office
-Route::get('/admin/products', 'BackOffice\ProductsController@index')->name('backoffice_product_index');
+Route::get('/admin/products', 'BackOffice\ProductsController@index')->name('backoffice_product.index');
+Route::get('/admin/products/create', 'BackOffice\ProductsController@formProduct')->name('backoffice_product_create');
+Route::get('/admin/products/update/{id}', 'BackOffice\ProductsController@formProduct')->name('backoffice_product_create');
+Route::get('/admin/products/delete/{id}', 'BackOffice\ProductsController@deleteProduct')->name('backoffice_product_delete');
+
+Route::post('/admin/products/process_form', 'BackOffice\ProductsController@processForm')->name('back_office_process');
+
+
+Route::get('/admin/orders', 'BackOffice\OrdersController@index')->name('backoffice_orders_index');
+Route::get('/admin/orders/update/{id}', 'BackOffice\OrdersController@formOrders')->name('backoffice_orders_create');
+Route::get('/admin/orders/delete/{id}', 'BackOffice\OrdersController@deleteOrders')->name('backoffice_orders_delete');
+
+Route::post('/admin/orders/process_form', 'BackOffice\OrdersController@processForm')->name('back_office_process');
+
+Route::get('/admin/customers', 'BackOffice\CustomersController@index')->name('backoffice_customers_index');
+Route::get('/admin/customers/update/{id}', 'BackOffice\CustomersController@formCustomers')->name('backoffice_customers_create');
+Route::get('/admin/customers/delete/{id}', 'BackOffice\CustomersController@deleteCustomers')->name('backoffice_customers_delete');
+
+Route::post('/admin/customers/process_form', 'BackOffice\CustomersController@processForm')->name('back_office_process');
+
+
 
 // Auth
 Route::get('BackOffice', [

@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->string('name',100);
             $table->bigInteger('price');
             $table->mediumInteger('stock');
-            $table->boolean('status');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
 

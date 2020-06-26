@@ -31,11 +31,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class=" navbar-collapse" id="">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::has('backoffice_product_index') ? 'nav-active' : ''  }} nav-text" href="/admin/products">Products</a>
+                            <a class="nav-link {{ strstr(Route::currentRouteName(),'product') ? 'nav-active' : ''  }} nav-text"
+                               href="/admin/products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ strstr(Route::currentRouteName(),'orders') ? 'nav-active' : ''  }} nav-text" href="/admin/orders">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ strstr(Route::currentRouteName(),'customers') ? 'nav-active' : ''  }} nav-text" href="/admin/customers">Customers</a>
                         </li>
                     </ul>
 

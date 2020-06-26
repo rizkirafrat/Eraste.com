@@ -4,12 +4,11 @@ namespace App\Http\Controllers\BackOffice;
 
 use App\Customers;
 use App\Http\Controllers\Controller;
-use App\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
-class OrdersController extends Controller
+class CustomersController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -28,10 +27,10 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $data = Orders::with('products')->latest()->get();
+        $data = Customers::latest()->get();
         $table = DataTables::of($data)->toJson();
 
-        return view('back/orders/home',[
+        return view('back/customers/home',[
             'table' => $table->original['data']
         ]);
     }
@@ -41,15 +40,15 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function formOrders($id = '')
+    public function formCustomers($id = '')
     {
         if ($id){
-            $order = Orders::find($id);
-            return view('back/orders/form_orders',[
-                'order' => $order
+            $customer = customers::find($id);
+            return view('back/customers/form_customers',[
+                'customer' => $customer
             ]);
         }
-        return view('back/order/form_orders');
+        return view('back/customers/form_customers');
     }
 
     public function processForm(\App\Http\Requests\Orders $request)
@@ -60,9 +59,10 @@ class OrdersController extends Controller
         try {
             $customer = Customers::updateOrCreate(
                 [
-                    'phone' => $request->phone,
+                    'id' => $request->id,
                 ],
                 [
+                    'phone' => $request->phone,
                     'fullname' => $request->fullname,
                     'address' => $request->address,
                 ]
@@ -79,15 +79,15 @@ class OrdersController extends Controller
             // something went wrong
         }
 
-        return redirect('/admin/orders');
+        return redirect('/admin/customers');
     }
 
-    public function deleteOrders($id)
+    public function deleteCustomers($id)
     {
         DB::beginTransaction();
         try {
-            $order = Orders::find($id);
-            $order->delete();
+            $customers = Customers::find($id);
+            $customers->delete();
             DB::commit();
         }catch (\Exception $e) {
 
@@ -98,6 +98,6 @@ class OrdersController extends Controller
             // something went wrong
         }
 
-        return redirect('/admin/orders');
+        return redirect('/admin/customers');
     }
 }
